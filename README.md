@@ -157,7 +157,7 @@ Optimized breakpoints for:
 
 1. **Clone or Download the Repository**
 ```bash
-git clone https://github.com/yourusername/inferential-statistics-tutorial.git
+git clone https://github.com/prateekdutta2001/inferential-statistics-tutorial.git
 ```
 
 2. **Navigate to the Project Directory**
