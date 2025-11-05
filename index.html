@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inferential Statistics - Complete Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📊</span>
+                <span class="logo-text">Inferential Statistics</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#intro" class="nav-link">Introduction</a></li>
+                <li><a href="#hypothesis" class="nav-link">Hypothesis Testing</a></li>
+                <li><a href="#confidence" class="nav-link">Confidence Intervals</a></li>
+                <li><a href="#tests" class="nav-link">Statistical Tests</a></li>
+                <li><a href="#regression" class="nav-link">Regression</a></li>
+                <li><a href="#calculator" class="nav-link">Calculator</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Master Inferential Statistics</h1>
+            <p class="hero-subtitle">Your comprehensive guide to understanding statistical inference, hypothesis testing, and data-driven decision making</p>
+            <button class="cta-button" onclick="scrollToSection('intro')">Start Learning</button>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-stat" style="top: 20%; left: 15%;">μ</div>
+            <div class="floating-stat" style="top: 60%; left: 10%;">σ</div>
+            <div class="floating-stat" style="top: 30%; right: 20%;">α</div>
+            <div class="floating-stat" style="top: 70%; right: 15%;">β</div>
+            <div class="floating-stat" style="top: 45%; left: 50%;">p</div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="section">
+        <div class="container">
+            <h2 class="section-title">What is Inferential Statistics?</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Making Predictions</h3>
+                    <p>Use sample data to make predictions and inferences about a larger population</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Testing Hypotheses</h3>
+                    <p>Scientifically test claims and theories using statistical evidence</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📈</div>
+                    <h3>Drawing Conclusions</h3>
+                    <p>Make data-driven decisions with quantified confidence levels</p>
+                </div>
+            </div>
+            
+            <div class="theory-box">
+                <h3>Fundamental Concepts in Inferential Statistics</h3>
+                <div class="concept-list">
+                    <div class="concept-item">
+                        <strong>Population vs Sample:</strong> A population (denoted N) includes all members of a specified group that we want to study. A sample (denoted n) is a smaller subset randomly selected from the population to make inferences about the whole. Since studying entire populations is often impractical or impossible, we use representative samples to estimate population characteristics.
+                    </div>
+                    <div class="concept-item">
+                        <strong>Parameters vs Statistics:</strong> 
+                        <br>• <strong>Parameters</strong> (Greek letters): Unknown population values we want to estimate
+                        <br>&nbsp;&nbsp;- μ (mu): Population mean
+                        <br>&nbsp;&nbsp;- σ (sigma): Population standard deviation  
+                        <br>&nbsp;&nbsp;- σ² (sigma squared): Population variance
+                        <br>&nbsp;&nbsp;- p: Population proportion
+                        <br>• <strong>Statistics</strong> (Roman letters): Known sample values calculated from data
+                        <br>&nbsp;&nbsp;- x̄ (x-bar): Sample mean
+                        <br>&nbsp;&nbsp;- s: Sample standard deviation
+                        <br>&nbsp;&nbsp;- s²: Sample variance
+                        <br>&nbsp;&nbsp;- p̂ (p-hat): Sample proportion
+                    </div>
+                    <div class="concept-item">
+                        <strong>Central Limit Theorem (CLT):</strong> One of the most important theorems in statistics. For any population with mean μ and standard deviation σ, as sample size n increases (typically n ≥ 30), the sampling distribution of the sample mean x̄ approaches a normal distribution with:
+                        <br>• Mean: μ<sub>x̄</sub> = μ
+                        <br>• Standard Error: σ<sub>x̄</sub> = σ / √n
+                        <br>This holds regardless of the shape of the original population distribution!
+                    </div>
+                    <div class="concept-item">
+                        <strong>Standard Error (SE):</strong> The standard deviation of a sampling distribution. It measures how much sample statistics typically vary from the population parameter. Formula: SE = s / √n, where s is the sample standard deviation and n is the sample size. Larger samples have smaller standard errors, leading to more precise estimates.
+                    </div>
+                    <div class="concept-item">
+                        <strong>Sampling Distribution:</strong> The probability distribution of a statistic (like x̄ or p̂) obtained from all possible samples of a given size from a population. Understanding sampling distributions is crucial for making inferences about populations from samples.
+                    </div>
+                    <div class="concept-item">
+                        <strong>Law of Large Numbers:</strong> As the sample size increases, the sample mean x̄ converges to the population mean μ. This justifies using sample statistics to estimate population parameters.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hypothesis Testing Section -->
+    <section id="hypothesis" class="section bg-alternate">
+        <div class="container">
+            <h2 class="section-title">Hypothesis Testing</h2>
+            
+            <div class="info-box">
+                <p class="intro-text">Hypothesis testing is a systematic statistical method used to make decisions about population parameters based on sample data. It provides a framework for determining whether observed differences or effects are statistically significant or merely due to random chance.</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>State Hypotheses</h3>
+                    <p><strong>H₀ (Null Hypothesis):</strong> The default assumption stating no effect, no difference, or no relationship exists (e.g., μ = μ₀ or p₁ = p₂)</p>
+                    <p><strong>H₁ or H<sub>a</sub> (Alternative Hypothesis):</strong> The research claim we're trying to prove. Can be:</p>
+                    <p>• <strong>Two-tailed:</strong> μ ≠ μ₀ (tests for any difference)</p>
+                    <p>• <strong>Right-tailed:</strong> μ > μ₀ (tests for increase)</p>
+                    <p>• <strong>Left-tailed:</strong> μ < μ₀ (tests for decrease)</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Set Significance Level</h3>
+                    <p><strong>α (Alpha):</strong> Maximum probability of Type I error we're willing to accept. Represents the threshold for "statistical significance."</p>
+                    <p><strong>Common levels:</strong></p>
+                    <p>• α = 0.01 (1%): Very stringent, for critical decisions</p>
+                    <p>• α = 0.05 (5%): Standard in most research</p>
+                    <p>• α = 0.10 (10%): More lenient, exploratory research</p>
+                    <p>Critical regions are determined by α: For two-tailed tests, split α/2 in each tail</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Calculate Test Statistic</h3>
+                    <p>Compute the appropriate test statistic from sample data:</p>
+                    <p><strong>Z-score:</strong> z = (x̄ - μ₀) / (σ / √n) when σ is known</p>
+                    <p><strong>T-score:</strong> t = (x̄ - μ₀) / (s / √n) when σ is unknown</p>
+                    <p><strong>Degrees of Freedom:</strong> df = n - 1 for t-tests</p>
+                    <p>The test statistic measures how many standard errors the sample statistic is from the hypothesized parameter.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Make Decision & Interpret</h3>
+                    <p><strong>Two methods for decision:</strong></p>
+                    <p>1. <strong>P-value approach:</strong> If p-value < α, reject H₀</p>
+                    <p>2. <strong>Critical value approach:</strong> If test statistic falls in critical region, reject H₀</p>
+                    <p><strong>Conclusion:</strong> State decision in context of the original problem with practical interpretation, not just statistical significance.</p>
+                </div>
+            </div>
+
+            <div class="theory-box">
+                <h3>Types of Errors in Hypothesis Testing</h3>
+                <div class="error-grid">
+                    <div class="error-card type1">
+                        <h4>Type I Error (α) - False Positive</h4>
+                        <p><strong>Definition:</strong> Rejecting a true null hypothesis H₀</p>
+                        <p><strong>Probability:</strong> P(Type I Error) = α (significance level)</p>
+                        <p><strong>Consequence:</strong> Claiming an effect exists when it doesn't</p>
+                        <p class="error-example"><strong>Example:</strong> Convicting an innocent person, concluding a drug works when it doesn't (false alarm)</p>
+                        <p><strong>Control:</strong> Set a lower α (e.g., 0.01 instead of 0.05)</p>
+                    </div>
+                    <div class="error-card type2">
+                        <h4>Type II Error (β) - False Negative</h4>
+                        <p><strong>Definition:</strong> Failing to reject a false null hypothesis H₀</p>
+                        <p><strong>Probability:</strong> P(Type II Error) = β</p>
+                        <p><strong>Power:</strong> 1 - β = probability of correctly rejecting false H₀</p>
+                        <p class="error-example"><strong>Example:</strong> Acquitting a guilty person, concluding a drug doesn't work when it does (missed detection)</p>
+                        <p><strong>Control:</strong> Increase sample size, use higher α, or increase effect size</p>
+                    </div>
+                </div>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+                    <strong>Trade-off:</strong> Decreasing α (Type I error) increases β (Type II error) and vice versa. The ideal balance depends on the relative costs of each type of error in your specific context.
+                    <br><br>
+                    <strong>Statistical Power:</strong> Power = 1 - β. Typically aim for power ≥ 0.80 (80% chance of detecting a real effect)
+                </div>
+            </div>
+
+            <div class="interactive-box">
+                <h3>Understanding P-Values</h3>
+                <p><strong>Definition:</strong> The p-value is the probability of obtaining test results at least as extreme as the observed results, assuming that the null hypothesis H₀ is true.</p>
+                <p><strong>Formula:</strong> p-value = P(observing test statistic ≥ |observed value| | H₀ is true)</p>
+                <p><strong>Interpretation Guide:</strong> Lower p-values provide stronger evidence against H₀</p>
+                <div class="p-value-scale">
+                    <div class="p-value-marker" data-value="0.001">p < 0.01<br><span>Very Strong Evidence Against H₀</span></div>
+                    <div class="p-value-marker" data-value="0.01">0.01 ≤ p < 0.05<br><span>Strong Evidence Against H₀</span></div>
+                    <div class="p-value-marker" data-value="0.05">0.05 ≤ p < 0.10<br><span>Moderate Evidence Against H₀</span></div>
+                    <div class="p-value-marker" data-value="0.10">p ≥ 0.10<br><span>Weak/No Evidence Against H₀</span></div>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Important:</strong> A p-value is NOT the probability that H₀ is true! It's the probability of the data given H₀ is true. Also, "not significant" does NOT prove H₀ is true.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confidence Intervals Section -->
+    <section id="confidence" class="section">
+        <div class="container">
+            <h2 class="section-title">Confidence Intervals</h2>
+            
+            <div class="info-box">
+                <p class="intro-text">A confidence interval (CI) provides a range of plausible values for an unknown population parameter, constructed from sample data. The confidence level represents the long-run proportion of such intervals that would contain the true parameter if we repeated the sampling process many times.</p>
+            </div>
+
+            <div class="formula-box">
+                <h3>Confidence Interval Formulas</h3>
+                <div class="formula">
+                    <strong>General Form:</strong> CI = Point Estimate ± Margin of Error
+                    <br>CI = Point Estimate ± (Critical Value × Standard Error)
+                </div>
+                
+                <div class="formula-explanation">
+                    <p><strong>1. For Population Mean μ (σ known, or n ≥ 30):</strong></p>
+                    <div class="formula">
+                        x̄ ± z<sub>α/2</sub> × (σ / √n)
+                        <br><br>
+                        Where: x̄ = sample mean, z<sub>α/2</sub> = critical z-value, 
+                        <br>σ = population standard deviation, n = sample size
+                        <br><strong>Standard Error:</strong> SE = σ / √n
+                        <br><strong>Margin of Error:</strong> ME = z<sub>α/2</sub> × SE
+                    </div>
+                </div>
+                
+                <div class="formula-explanation">
+                    <p><strong>2. For Population Mean μ (σ unknown, small sample):</strong></p>
+                    <div class="formula">
+                        x̄ ± t<sub>α/2, df</sub> × (s / √n)
+                        <br><br>
+                        Where: s = sample standard deviation, 
+                        <br>t<sub>α/2, df</sub> = critical t-value with df = n - 1 degrees of freedom
+                        <br><strong>Standard Error:</strong> SE = s / √n
+                        <br><strong>Use when:</strong> n < 30 and population is approximately normal
+                    </div>
+                </div>
+                
+                <div class="formula-explanation">
+                    <p><strong>3. For Population Proportion p:</strong></p>
+                    <div class="formula">
+                        p̂ ± z<sub>α/2</sub> × √[p̂(1 - p̂) / n]
+                        <br><br>
+                        Where: p̂ = sample proportion = x / n
+                        <br>x = number of successes, n = sample size
+                        <br><strong>Standard Error:</strong> SE = √[p̂(1 - p̂) / n]
+                        <br><strong>Condition:</strong> np̂ ≥ 10 and n(1 - p̂) ≥ 10
+                    </div>
+                </div>
+                
+                <div class="formula-explanation">
+                    <p><strong>4. For Difference Between Two Means (independent samples):</strong></p>
+                    <div class="formula">
+                        (x̄₁ - x̄₂) ± t<sub>α/2, df</sub> × √[(s₁² / n₁) + (s₂² / n₂)]
+                        <br><br>
+                        Where: x̄₁, x̄₂ = sample means, s₁, s₂ = sample standard deviations
+                        <br>n₁, n₂ = sample sizes
+                        <br><strong>Pooled Standard Error:</strong> SE = √[(s₁² / n₁) + (s₂² / n₂)]
+                    </div>
+                </div>
+            </div>
+
+            <div class="confidence-levels">
+                <h3>Common Confidence Levels & Critical Values</h3>
+                <div class="level-grid">
+                    <div class="level-card">
+                        <div class="level-percent">90%</div>
+                        <p><strong>z<sub>α/2</sub> = 1.645</strong></p>
+                        <p>α = 0.10, α/2 = 0.05</p>
+                        <p class="level-desc">Narrower interval, less confident</p>
+                        <p>Used for: Preliminary studies</p>
+                    </div>
+                    <div class="level-card featured">
+                        <div class="level-percent">95%</div>
+                        <p><strong>z<sub>α/2</sub> = 1.96</strong></p>
+                        <p>α = 0.05, α/2 = 0.025</p>
+                        <p class="level-desc">Standard in most research</p>
+                        <p>Used for: General research, publications</p>
+                    </div>
+                    <div class="level-card">
+                        <div class="level-percent">99%</div>
+                        <p><strong>z<sub>α/2</sub> = 2.576</strong></p>
+                        <p>α = 0.01, α/2 = 0.005</p>
+                        <p class="level-desc">Wider interval, more confident</p>
+                        <p>Used for: Critical decisions, medical studies</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+                    <strong>Relationship:</strong> Confidence Level = (1 - α) × 100%
+                    <br><strong>Width Trade-off:</strong> Higher confidence → Wider interval → Less precision
+                    <br><strong>Sample Size Effect:</strong> Larger n → Smaller SE → Narrower interval (more precision)
+                </p>
+            </div>
+
+            <div class="interpretation-box">
+                <h3>Correct Interpretation of Confidence Intervals</h3>
+                <div class="interpretation-content">
+                    <div class="correct">
+                        <strong>✓ CORRECT Interpretations:</strong>
+                        <p>• "We are 95% confident that the true population mean μ lies between [lower, upper]"</p>
+                        <p>• "If we repeated this sampling process many times, about 95% of the constructed intervals would contain the true μ"</p>
+                        <p>• "The interval [lower, upper] was constructed using a method that captures the true parameter 95% of the time"</p>
+                    </div>
+                    <div class="incorrect">
+                        <strong>✗ INCORRECT Interpretations:</strong>
+                        <p>• "There is a 95% probability that μ is in this interval" (μ is fixed, not random!)</p>
+                        <p>• "95% of the data falls in this interval" (CI is for the parameter, not data)</p>
+                        <p>• "There is a 95% chance the interval contains μ" (after construction, it either does or doesn't)</p>
+                    </div>
+                    <p class="note">
+                        <strong>Key Understanding:</strong> The confidence level (95%) refers to the procedure, not a specific interval. Once calculated, a particular interval either contains the true parameter (with certainty) or it doesn't. The "confidence" is in the method's long-run success rate.
+                        <br><br>
+                        <strong>Factors Affecting Width:</strong>
+                        <br>• Sample size (n) ↑ → Width ↓
+                        <br>• Confidence level ↑ → Width ↑
+                        <br>• Population variability (σ) ↑ → Width ↑
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistical Tests Section -->
+    <section id="tests" class="section bg-alternate">
+        <div class="container">
+            <h2 class="section-title">Statistical Tests</h2>
+
+            <!-- T-Tests -->
+            <div class="test-category">
+                <h3 class="category-title">T-Tests (When σ is Unknown)</h3>
+                <div class="test-grid">
+                    <div class="test-card">
+                        <h4>One-Sample T-Test</h4>
+                        <p class="test-purpose"><strong>Purpose:</strong> Compare sample mean x̄ to a known/hypothesized population mean μ₀</p>
+                        <div class="test-formula">
+                            <strong>Test Statistic:</strong>
+                            <br>t = (x̄ - μ₀) / (s / √n)
+                            <br><br>
+                            <strong>Where:</strong>
+                            <br>• x̄ = sample mean
+                            <br>• μ₀ = hypothesized population mean
+                            <br>• s = sample standard deviation
+                            <br>• n = sample size
+                            <br>• df = n - 1 (degrees of freedom)
+                            <br><br>
+                            <strong>Standard Error:</strong> SE = s / √n
+                        </div>
+                        <p class="test-example">
+                            <strong>Example:</strong> Does the average height of students (x̄ = 170 cm) differ from the national average (μ₀ = 168 cm)?
+                            <br><strong>Hypotheses:</strong> H₀: μ = 168 vs H₁: μ ≠ 168
+                        </p>
+                        <p><strong>Assumptions:</strong> Random sample, approximately normal distribution (or n ≥ 30)</p>
+                    </div>
+                    <div class="test-card">
+                        <h4>Two-Sample T-Test (Independent)</h4>
+                        <p class="test-purpose"><strong>Purpose:</strong> Compare means of two independent populations</p>
+                        <div class="test-formula">
+                            <strong>Test Statistic:</strong>
+                            <br>t = (x̄₁ - x̄₂) / √[(s₁² / n₁) + (s₂² / n₂)]
+                            <br><br>
+                            <strong>Pooled Variance Method (when σ₁ = σ₂):</strong>
+                            <br>s<sub>p</sub>² = [(n₁-1)s₁² + (n₂-1)s₂²] / (n₁ + n₂ - 2)
+                            <br>t = (x̄₁ - x̄₂) / [s<sub>p</sub> × √(1/n₁ + 1/n₂)]
+                            <br>df = n₁ + n₂ - 2
+                            <br><br>
+                            <strong>Welch's Method (unequal variances):</strong>
+                            <br>df ≈ smaller of (n₁-1, n₂-1)
+                        </div>
+                        <p class="test-example">
+                            <strong>Example:</strong> Do males (x̄₁ = 82) and females (x̄₂ = 78) have different average test scores?
+                            <br><strong>Hypotheses:</strong> H₀: μ₁ = μ₂ vs H₁: μ₁ ≠ μ₂
+                        </p>
+                        <p><strong>Assumptions:</strong> Independent samples, normal distributions, homogeneity of variance</p>
+                    </div>
+                    <div class="test-card">
+                        <h4>Paired T-Test (Dependent)</h4>
+                        <p class="test-purpose"><strong>Purpose:</strong> Compare means of related/paired observations (before/after, matched pairs)</p>
+                        <div class="test-formula">
+                            <strong>Test Statistic:</strong>
+                            <br>t = d̄ / (s<sub>d</sub> / √n)
+                            <br><br>
+                            <strong>Where:</strong>
+                            <br>• d̄ = mean of differences = Σd<sub>i</sub> / n
+                            <br>• d<sub>i</sub> = x<sub>i,before</sub> - x<sub>i,after</sub>
+                            <br>• s<sub>d</sub> = standard deviation of differences
+                            <br>• s<sub>d</sub> = √[Σ(d<sub>i</sub> - d̄)² / (n-1)]
+                            <br>• df = n - 1 (number of pairs - 1)
+                        </div>
+                        <p class="test-example">
+                            <strong>Example:</strong> Did blood pressure decrease after treatment? Before: 140 mmHg, After: 132 mmHg
+                            <br><strong>Hypotheses:</strong> H₀: μ<sub>d</sub> = 0 vs H₁: μ<sub>d</sub> > 0 (one-tailed for decrease)
+                        </p>
+                        <p><strong>Assumptions:</strong> Paired observations, differences are approximately normal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANOVA -->
+            <div class="test-category">
+                <h3 class="category-title">ANOVA (Analysis of Variance)</h3>
+                <div class="anova-box">
+                    <p class="test-purpose"><strong>Purpose:</strong> Compare means across three or more independent groups simultaneously (extension of t-test)</p>
+                    <div class="test-formula">
+                        <strong>F-Test Statistic:</strong>
+                        <br>F = MS<sub>between</sub> / MS<sub>within</sub> = (Between-Group Variance) / (Within-Group Variance)
+                        <br><br>
+                        <strong>Sum of Squares:</strong>
+                        <br>• Total: SS<sub>total</sub> = Σ(x<sub>ij</sub> - x̄<sub>grand</sub>)²
+                        <br>• Between Groups: SS<sub>between</sub> = Σn<sub>i</sub>(x̄<sub>i</sub> - x̄<sub>grand</sub>)²
+                        <br>• Within Groups: SS<sub>within</sub> = Σ(x<sub>ij</sub> - x̄<sub>i</sub>)²
+                        <br><br>
+                        <strong>Mean Squares:</strong>
+                        <br>• MS<sub>between</sub> = SS<sub>between</sub> / df<sub>between</sub>
+                        <br>• MS<sub>within</sub> = SS<sub>within</sub> / df<sub>within</sub>
+                        <br><br>
+                        <strong>Degrees of Freedom:</strong>
+                        <br>• df<sub>between</sub> = k - 1 (k = number of groups)
+                        <br>• df<sub>within</sub> = N - k (N = total sample size)
+                        <br>• df<sub>total</sub> = N - 1
+                    </div>
+                    <div class="anova-components">
+                        <div class="component">
+                            <strong>Between-Group Variation:</strong> Measures differences among group means. Large values suggest groups have different means.
+                        </div>
+                        <div class="component">
+                            <strong>Within-Group Variation:</strong> Measures variability within each group (error/noise). Used as baseline for comparison.
+                        </div>
+                    </div>
+                    <p class="test-example">
+                        <strong>Example:</strong> Do students from three teaching methods (A, B, C) have different average scores?
+                        <br><strong>Hypotheses:</strong> H₀: μ₁ = μ₂ = μ₃ vs H₁: At least one mean differs
+                        <br><strong>Post-hoc:</strong> If F is significant, use Tukey HSD or Bonferroni to find which pairs differ
+                    </p>
+                    <p><strong>Assumptions:</strong> Independence, normality within groups, homogeneity of variance (equal variances)</p>
+                </div>
+            </div>
+
+            <!-- Chi-Square Tests -->
+            <div class="test-category">
+                <h3 class="category-title">Chi-Square (χ²) Tests</h3>
+                <div class="test-grid">
+                    <div class="test-card">
+                        <h4>Chi-Square Goodness-of-Fit Test</h4>
+                        <p class="test-purpose"><strong>Purpose:</strong> Test if observed frequencies match an expected probability distribution</p>
+                        <div class="test-formula">
+                            <strong>Test Statistic:</strong>
+                            <br>χ² = Σ [(O<sub>i</sub> - E<sub>i</sub>)² / E<sub>i</sub>]
+                            <br><br>
+                            <strong>Where:</strong>
+                            <br>• O<sub>i</sub> = observed frequency in category i
+                            <br>• E<sub>i</sub> = expected frequency in category i
+                            <br>• Sum over all k categories
+                            <br>• df = k - 1 - p (p = parameters estimated)
+                            <br><br>
+                            <strong>Expected Frequency:</strong>
+                            <br>E<sub>i</sub> = n × P<sub>i</sub> (n = total, P<sub>i</sub> = expected proportion)
+                        </div>
+                        <p class="test-example">
+                            <strong>Example:</strong> Is a die fair? Roll 600 times, expect each face 100 times
+                            <br><strong>Hypotheses:</strong> H₀: Die is fair (P₁=P₂=...=P₆=1/6) vs H₁: Die is not fair
+                        </p>
+                        <p><strong>Condition:</strong> All E<sub>i</sub> ≥ 5</p>
+                    </div>
+                    <div class="test-card">
+                        <h4>Chi-Square Test of Independence</h4>
+                        <p class="test-purpose"><strong>Purpose:</strong> Test if two categorical variables are independent (contingency table analysis)</p>
+                        <div class="test-formula">
+                            <strong>Test Statistic:</strong>
+                            <br>χ² = Σ [(O<sub>ij</sub> - E<sub>ij</sub>)² / E<sub>ij</sub>]
+                            <br><br>
+                            <strong>Expected Frequency:</strong>
+                            <br>E<sub>ij</sub> = (Row<sub>i</sub> Total × Column<sub>j</sub> Total) / Grand Total
+                            <br><br>
+                            <strong>Degrees of Freedom:</strong>
+                            <br>df = (r - 1) × (c - 1)
+                            <br>r = number of rows, c = number of columns
+                        </div>
+                        <p class="test-example">
+                            <strong>Example:</strong> Is smoking status independent of gender?
+                            <br><strong>Hypotheses:</strong> H₀: Variables are independent vs H₁: Variables are dependent
+                        </p>
+                        <p><strong>Condition:</strong> At least 80% of cells have E<sub>ij</sub> ≥ 5</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Z-Test -->
+            <div class="test-category">
+                <h3 class="category-title">Z-Test (When σ is Known)</h3>
+                <div class="test-card single">
+                    <h4>One-Sample Z-Test for Mean</h4>
+                    <p class="test-purpose"><strong>Purpose:</strong> Test hypothesis about population mean when population standard deviation σ is known</p>
+                    <div class="test-formula">
+                        <strong>Test Statistic:</strong>
+                        <br>z = (x̄ - μ₀) / (σ / √n)
+                        <br><br>
+                        <strong>Where:</strong>
+                        <br>• x̄ = sample mean
+                        <br>• μ₀ = hypothesized population mean
+                        <br>• σ = known population standard deviation
+                        <br>• n = sample size
+                        <br><br>
+                        <strong>Standard Error:</strong> SE = σ / √n
+                        <br><br>
+                        <strong>Critical Values (two-tailed):</strong>
+                        <br>• α = 0.05: z = ±1.96
+                        <br>• α = 0.01: z = ±2.576
+                        <br>• α = 0.10: z = ±1.645
+                    </div>
+                    <p class="test-example">
+                        <strong>Example:</strong> Testing if sample mean differs from known population mean when σ is known
+                        <br><strong>Use when:</strong> σ known, large sample (n ≥ 30), or population is normal
+                    </p>
+                    <p><strong>Z-Test for Proportions:</strong> z = (p̂ - p₀) / √[p₀(1-p₀)/n]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regression Section -->
+    <section id="regression" class="section">
+        <div class="container">
+            <h2 class="section-title">Regression Analysis</h2>
+            
+            <div class="info-box">
+                <p class="intro-text">Regression analysis is a powerful statistical method used to model and examine the relationship between one dependent variable (Y) and one or more independent variables (X). It allows us to predict outcomes, quantify relationships, and test hypotheses about how variables relate to each other.</p>
+            </div>
+
+            <div class="regression-types">
+                <div class="regression-card">
+                    <h3>Simple Linear Regression</h3>
+                    <p><strong>Purpose:</strong> Model the linear relationship between one predictor (X) and one response variable (Y)</p>
+                    <div class="formula">
+                        <strong>Regression Equation:</strong>
+                        <br>ŷ = β₀ + β₁x + ε
+                        <br><br>
+                        <strong>Where:</strong>
+                        <br>• ŷ = Predicted value of Y
+                        <br>• β₀ = Y-intercept (value of Y when X = 0)
+                        <br>• β₁ = Slope (change in Y per one-unit change in X)
+                        <br>• x = Independent variable (predictor)
+                        <br>• ε = Error term (residual)
+                    </div>
+                    <div class="formula-parts">
+                        <p><strong>Calculating Slope (β₁):</strong></p>
+                        <div class="formula">
+                            β₁ = Σ[(x<sub>i</sub> - x̄)(y<sub>i</sub> - ȳ)] / Σ(x<sub>i</sub> - x̄)²
+                            <br>OR: β₁ = r × (s<sub>y</sub> / s<sub>x</sub>)
+                        </div>
+                        <p><strong>Calculating Intercept (β₀):</strong></p>
+                        <div class="formula">
+                            β₀ = ȳ - β₁x̄
+                        </div>
+                        <p style="margin-top: 0.5rem;"><strong>Where:</strong> r = correlation coefficient, s<sub>x</sub> = SD of X, s<sub>y</sub> = SD of Y</p>
+                    </div>
+                </div>
+
+                <div class="regression-card">
+                    <h3>Multiple Linear Regression</h3>
+                    <p><strong>Purpose:</strong> Predict Y using multiple predictor variables X₁, X₂, ..., X<sub>k</sub></p>
+                    <div class="formula">
+                        <strong>Regression Equation:</strong>
+                        <br>ŷ = β₀ + β₁x₁ + β₂x₂ + ... + β<sub>k</sub>x<sub>k</sub> + ε
+                        <br><br>
+                        <strong>Where:</strong>
+                        <br>• β₀ = Intercept
+                        <br>• β<sub>i</sub> = Partial regression coefficient for X<sub>i</sub>
+                        <br>• β<sub>i</sub> represents the change in Y for one-unit change in X<sub>i</sub>, holding all other predictors constant
+                    </div>
+                    <p class="formula-desc">
+                        <strong>Key Advantage:</strong> Controls for confounding variables and provides better predictions
+                        <br><strong>Matrix Form:</strong> Y = Xβ + ε, solved using: β = (X'X)⁻¹X'Y
+                    </p>
+                </div>
+            </div>
+
+            <div class="regression-metrics">
+                <h3>Key Regression Metrics & Formulas</h3>
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <h4>R² (Coefficient of Determination)</h4>
+                        <p><strong>Definition:</strong> Proportion of variance in Y explained by X</p>
+                        <div class="formula">
+                            R² = 1 - (SS<sub>residual</sub> / SS<sub>total</sub>)
+                            <br>R² = SS<sub>regression</sub> / SS<sub>total</sub>
+                            <br><br>
+                            <strong>Where:</strong>
+                            <br>• SS<sub>total</sub> = Σ(y<sub>i</sub> - ȳ)²
+                            <br>• SS<sub>regression</sub> = Σ(ŷ<sub>i</sub> - ȳ)²
+                            <br>• SS<sub>residual</sub> = Σ(y<sub>i</sub> - ŷ<sub>i</sub>)²
+                        </div>
+                        <p class="metric-range"><strong>Range:</strong> 0 to 1 (0% to 100%)</p>
+                        <p><strong>Interpretation:</strong> R² = 0.75 means 75% of variance in Y is explained by X</p>
+                        <p><strong>Adjusted R²:</strong> R²<sub>adj</sub> = 1 - [(1-R²)(n-1)/(n-k-1)] (penalizes extra predictors)</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Correlation Coefficient (r)</h4>
+                        <p><strong>Definition:</strong> Measures strength and direction of linear relationship</p>
+                        <div class="formula">
+                            r = Σ[(x<sub>i</sub> - x̄)(y<sub>i</sub> - ȳ)] / √[Σ(x<sub>i</sub> - x̄)² × Σ(y<sub>i</sub> - ȳ)²]
+                            <br><br>
+                            <strong>Relationship with R²:</strong>
+                            <br>R² = r² (in simple linear regression)
+                            <br>r = ±√R² (sign matches slope β₁)
+                        </div>
+                        <p class="metric-range"><strong>Range:</strong> -1 to +1</p>
+                        <div class="correlation-scale">
+                            <span>-1 (Perfect Negative)</span>
+                            <span>0 (No Correlation)</span>
+                            <span>1 (Perfect Positive)</span>
+                        </div>
+                        <p><strong>Interpretation:</strong> |r| > 0.7 = strong, 0.3-0.7 = moderate, < 0.3 = weak</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Standard Error of Estimate (SE<sub>est</sub>)</h4>
+                        <p><strong>Definition:</strong> Average distance of observed Y values from regression line</p>
+                        <div class="formula">
+                            SE<sub>est</sub> = √[Σ(y<sub>i</sub> - ŷ<sub>i</sub>)² / (n - 2)]
+                            <br>SE<sub>est</sub> = √[SS<sub>residual</sub> / (n - 2)]
+                            <br><br>
+                            <strong>Also called:</strong> Root Mean Square Error (RMSE)
+                            <br><strong>Interpretation:</strong> Units of Y variable
+                        </div>
+                        <p class="metric-range"><strong>Better fit:</strong> Lower SE<sub>est</sub> values</p>
+                        <p><strong>Use:</strong> Measures prediction accuracy; construct prediction intervals</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="assumptions-box">
+                <h3>Linear Regression Assumptions (LINE)</h3>
+                <div class="assumption-list">
+                    <div class="assumption-item">
+                        <span class="check">✓</span> <strong>L - Linearity:</strong> The relationship between X and Y is linear
+                        <br><strong>Check:</strong> Scatter plot should show linear pattern
+                        <br><strong>Fix:</strong> Transform variables (log, square root) or use polynomial regression
+                    </div>
+                    <div class="assumption-item">
+                        <span class="check">✓</span> <strong>I - Independence:</strong> Observations are independent of each other (no autocorrelation)
+                        <br><strong>Check:</strong> Durbin-Watson test, plot residuals over time
+                        <br><strong>Violation:</strong> Common in time series data
+                    </div>
+                    <div class="assumption-item">
+                        <span class="check">✓</span> <strong>N - Normality:</strong> Residuals (errors) are approximately normally distributed
+                        <br><strong>Check:</strong> Q-Q plot, histogram of residuals, Shapiro-Wilk test
+                        <br><strong>Note:</strong> Most critical for small samples (n < 30)
+                    </div>
+                    <div class="assumption-item">
+                        <span class="check">✓</span> <strong>E - Equal Variance (Homoscedasticity):</strong> Constant variance of residuals across all values of X
+                        <br><strong>Check:</strong> Residual plot (residuals vs. fitted values should show random scatter)
+                        <br><strong>Fix:</strong> Transform Y variable or use weighted least squares
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.6); border-radius: 8px; border-left: 4px solid #14b8a6;">
+                    <strong>Additional Considerations:</strong>
+                    <br>• <strong>No Multicollinearity:</strong> (Multiple regression) Predictors should not be highly correlated with each other (check VIF < 10)
+                    <br>• <strong>No Outliers/Influential Points:</strong> Check Cook's distance, leverage, DFFIT
+                    <br>• <strong>Residual Formula:</strong> e<sub>i</sub> = y<sub>i</sub> - ŷ<sub>i</sub> (observed - predicted)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator Section -->
+    <section id="calculator" class="section bg-alternate">
+        <div class="container">
+            <h2 class="section-title">Statistical Calculators</h2>
+            
+            <div class="calculator-tabs">
+                <button class="tab-button active" data-tab="ttest">T-Test</button>
+                <button class="tab-button" data-tab="ci">Confidence Interval</button>
+                <button class="tab-button" data-tab="ztest">Z-Test</button>
+                <button class="tab-button" data-tab="correlation">Correlation</button>
+            </div>
+
+            <!-- T-Test Calculator -->
+            <div id="ttest" class="calculator-content active">
+                <h3>One-Sample T-Test Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="sample-mean">Sample Mean (x̄):</label>
+                        <input type="number" id="sample-mean" step="0.01" placeholder="e.g., 75.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="pop-mean">Population Mean (μ₀):</label>
+                        <input type="number" id="pop-mean" step="0.01" placeholder="e.g., 70">
+                    </div>
+                    <div class="form-group">
+                        <label for="sample-sd">Sample Standard Deviation (s):</label>
+                        <input type="number" id="sample-sd" step="0.01" placeholder="e.g., 8.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="sample-size">Sample Size (n):</label>
+                        <input type="number" id="sample-size" min="2" placeholder="e.g., 30">
+                    </div>
+                    <div class="form-group">
+                        <label for="alpha-level">Significance Level (α):</label>
+                        <select id="alpha-level">
+                            <option value="0.01">0.01</option>
+                            <option value="0.05" selected>0.05</option>
+                            <option value="0.10">0.10</option>
+                        </select>
+                    </div>
+                    <button class="calculate-btn" onclick="calculateTTest()">Calculate</button>
+                </div>
+                <div id="ttest-result" class="result-box"></div>
+            </div>
+
+            <!-- Confidence Interval Calculator -->
+            <div id="ci" class="calculator-content">
+                <h3>Confidence Interval Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="ci-mean">Sample Mean (x̄):</label>
+                        <input type="number" id="ci-mean" step="0.01" placeholder="e.g., 100">
+                    </div>
+                    <div class="form-group">
+                        <label for="ci-sd">Standard Deviation (s):</label>
+                        <input type="number" id="ci-sd" step="0.01" placeholder="e.g., 15">
+                    </div>
+                    <div class="form-group">
+                        <label for="ci-size">Sample Size (n):</label>
+                        <input type="number" id="ci-size" min="2" placeholder="e.g., 50">
+                    </div>
+                    <div class="form-group">
+                        <label for="confidence-level">Confidence Level:</label>
+                        <select id="confidence-level">
+                            <option value="90">90%</option>
+                            <option value="95" selected>95%</option>
+                            <option value="99">99%</option>
+                        </select>
+                    </div>
+                    <button class="calculate-btn" onclick="calculateCI()">Calculate</button>
+                </div>
+                <div id="ci-result" class="result-box"></div>
+            </div>
+
+            <!-- Z-Test Calculator -->
+            <div id="ztest" class="calculator-content">
+                <h3>Z-Test Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="z-sample-mean">Sample Mean (x̄):</label>
+                        <input type="number" id="z-sample-mean" step="0.01" placeholder="e.g., 105">
+                    </div>
+                    <div class="form-group">
+                        <label for="z-pop-mean">Population Mean (μ):</label>
+                        <input type="number" id="z-pop-mean" step="0.01" placeholder="e.g., 100">
+                    </div>
+                    <div class="form-group">
+                        <label for="z-pop-sd">Population Standard Deviation (σ):</label>
+                        <input type="number" id="z-pop-sd" step="0.01" placeholder="e.g., 15">
+                    </div>
+                    <div class="form-group">
+                        <label for="z-sample-size">Sample Size (n):</label>
+                        <input type="number" id="z-sample-size" min="1" placeholder="e.g., 100">
+                    </div>
+                    <div class="form-group">
+                        <label for="z-alpha-level">Significance Level (α):</label>
+                        <select id="z-alpha-level">
+                            <option value="0.01">0.01</option>
+                            <option value="0.05" selected>0.05</option>
+                            <option value="0.10">0.10</option>
+                        </select>
+                    </div>
+                    <button class="calculate-btn" onclick="calculateZTest()">Calculate</button>
+                </div>
+                <div id="ztest-result" class="result-box"></div>
+            </div>
+
+            <!-- Correlation Calculator -->
+            <div id="correlation" class="calculator-content">
+                <h3>Correlation Coefficient Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group full-width">
+                        <label for="x-values">X Values (comma-separated):</label>
+                        <input type="text" id="x-values" placeholder="e.g., 1, 2, 3, 4, 5">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="y-values">Y Values (comma-separated):</label>
+                        <input type="text" id="y-values" placeholder="e.g., 2, 4, 5, 4, 5">
+                    </div>
+                    <button class="calculate-btn" onclick="calculateCorrelation()">Calculate</button>
+                </div>
+                <div id="correlation-result" class="result-box"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📊 Inferential Statistics</h3>
+                    <p>Your comprehensive guide to statistical inference and hypothesis testing.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#hypothesis">Hypothesis Testing</a></li>
+                        <li><a href="#confidence">Confidence Intervals</a></li>
+                        <li><a href="#tests">Statistical Tests</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#calculator">Calculators</a></li>
+                        <li><a href="#regression">Regression</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Inferential Statistics Tutorial. All rights reserved. Personalized content curated by Prateek Dutta</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
