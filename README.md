@@ -421,55 +421,6 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## 📚 Educational Use
-
-### For Students
-- Comprehensive reference for statistics courses
-- Practice problems with instant feedback
-- Visual learning with interactive elements
-- Bookmark for exam preparation
-
-### For Educators
-- Use as supplementary teaching material
-- Assign sections as homework
-- Demonstrate concepts in class
-- No login or account required
-
-### For Self-Learners
-- Complete self-paced tutorial
-- No prerequisites (starts from basics)
-- Includes real-world examples
-- Interactive practice with calculators
-
----
-
-## 🐛 Known Issues & Limitations
-
-### Current Limitations
-- **Calculators:**
-  - P-values are approximations (not exact)
-  - T-distribution uses simplified lookup table
-  - Limited to specific test types
-
-- **Statistical Accuracy:**
-  - Suitable for educational purposes
-  - For research/production, use dedicated software (R, Python, SPSS)
-
-- **Browser Compatibility:**
-  - Internet Explorer not supported
-  - Requires modern browser with ES6+ support
-
-### Planned Improvements
-- [ ] Add exact p-value calculations
-- [ ] Implement more distribution tables
-- [ ] Add data upload capability
-- [ ] Create visualization charts
-- [ ] Add sample size calculators
-- [ ] Include effect size calculations
-- [ ] Add power analysis tools
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License.
@@ -500,8 +451,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 **Prateek Dutta**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@prateekdutta2001](https://github.com/yourusername)
 
 ---
 
