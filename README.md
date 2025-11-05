@@ -466,7 +466,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 ## 🌐 Live Demo
 
-[View Live Demo](https://prateekdutta2001.github.io/inferential-statistics-tutorial/)
+[View Live Demo](https://prateekdutta2001.github.io/Info_Stats/)
 
 ---
 
