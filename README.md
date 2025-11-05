@@ -484,6 +484,6 @@ If you find this project helpful, please consider:
 
 **Built with ❤️ for Statistics Education**
 
-Made by [Prateek Dutta](prateekdutta.com) | 2025
+Made by [Prateek Dutta](https://prateekduttaportfolio.netlify.app/) | 2025
 
 </div>
